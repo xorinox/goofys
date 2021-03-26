@@ -50,12 +50,14 @@ Users can also configure credentials via the
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 or the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
-To mount an S3 bucket on startup, make sure the credential is
+To mount an S3 bucket on startup, make the credential is
 configured for `root`, and can add this to `/etc/fstab`:
 
 ```
 goofys#bucket   /mnt/mountpoint        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777    0       0
 ```
+
+Requires fuse, check command fusermount -V, on some distributions package needs to be installed.
 
 See also: [Instruction for Azure Blob Storage, Azure Data Lake Gen1, and Azure Data Lake Gen2](https://github.com/kahing/goofys/blob/master/README-azure.md).
 
